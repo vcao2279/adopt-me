@@ -1,6 +1,6 @@
-import React from 'react';
-import { render } from 'react-dom';
-import Pet from './Pet';
+import React from "react";
+import { render } from "react-dom";
+import Pet from "./Pet";
 
 class App extends React.Component {
   handleTitleClick() {
@@ -11,11 +11,11 @@ class App extends React.Component {
     return (
       <div>
         <h1 onClick={this.handleTitleClick}>Adopt Me!</h1>
-        <Pet name="Luna" animal="Dog" breed="Havanese"/>
-        <Pet name="Happy" animal="Rat" breed="FancyMouse"/>
-        <Pet name="Oink" animal="Pig" breed="AwesomePig"/>
+        <Pet name="Luna" animal="Dog" breed="Havanese" />
+        <Pet name="Happy" animal="Rat" breed="FancyMouse" />
+        <Pet name="Oink" animal="Pig" breed="AwesomePig" />
       </div>
-    )
+    );
   }
 }
 
