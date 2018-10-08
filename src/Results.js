@@ -38,13 +38,9 @@ class Results extends React.Component {
     });
   }
 
-  handleTitleClick() {
-    alert("you clicked the title");
-  }
-
   render() {
     return (
-      <div>
+      <div className="search">
         {this.state.pets.map(pet => {
           let breed;
           if (Array.isArray(pet.breeds.breed)) {
@@ -60,6 +56,7 @@ class Results extends React.Component {
               breed={breed}
               media={pet.media}
               location={`${pet.contact.city}, ${pet.contact.state}`}
+              id={pet.id}
             />
           );
         })}
