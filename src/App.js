@@ -47,9 +47,9 @@ class App extends React.Component {
     return (
       <div>
         <h1 onClick={this.handleTitleClick}>Adopt Me!</h1>
-        <Pet name="Luna" animal="Dog" breed="Havanese" />
-        <Pet name="Happy" animal="Rat" breed="FancyMouse" />
-        <Pet name="Oink" animal="Pig" breed="AwesomePig" />
+        <pre>
+          <code>{JSON.stringify(this.state.pets, null, 4)}</code>
+        </pre>
       </div>
     );
   }
