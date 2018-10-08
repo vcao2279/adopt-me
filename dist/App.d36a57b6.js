@@ -22122,7 +22122,7 @@ var _react = _interopRequireDefault(require("react"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var Pet = function Pet(props) {
-  return _react.default.createElement("div", {}, [_react.default.createElement("h1", {}, props.name), _react.default.createElement("h2", {}, props.animal), _react.default.createElement("h2", {}, props.breed)]);
+  return _react.default.createElement("div", null, _react.default.createElement("h1", null, props.name), _react.default.createElement("h2", null, props.animal), _react.default.createElement("h2", null, props.breed));
 };
 
 var _default = Pet;
@@ -22175,7 +22175,7 @@ function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      return _react.default.createElement("div", {}, [_react.default.createElement("h1", {
+      return _react.default.createElement("div", null, _react.default.createElement("h1", {
         onClick: this.handleTitleClick
       }, "Adopt Me!"), _react.default.createElement(_Pet.default, {
         name: "Luna",
@@ -22189,7 +22189,7 @@ function (_React$Component) {
         name: "Oink",
         animal: "Pig",
         breed: "AwesomePig"
-      })]);
+      }));
     }
   }]);
 
