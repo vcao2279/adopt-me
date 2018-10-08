@@ -1,6 +1,12 @@
 import React from "react";
 import { render } from "react-dom";
+import pf from "petfinder-client";
 import Pet from "./Pet";
+
+const petfinder = pf({
+  key: process.env.API_KEY,
+  secret: process.env.API_SECRET
+});
 
 class App extends React.Component {
   handleTitleClick() {
