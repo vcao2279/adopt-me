@@ -22620,8 +22620,8 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 
 var petfinder = (0, _petfinderClient.default)({
-  key: undefined,
-  secret: undefined
+  key: "7c2d2e25046e8ee447a0c17b4cee299b",
+  secret: "9b21b4b0a958cf2e0ef726816ff43da3"
 });
 
 var App =
@@ -22629,13 +22629,46 @@ var App =
 function (_React$Component) {
   _inherits(App, _React$Component);
 
-  function App() {
+  function App(props) {
+    var _this;
+
     _classCallCheck(this, App);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(App).apply(this, arguments));
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(App).call(this, props));
+    _this.state = {
+      pets: []
+    };
+    return _this;
   }
 
   _createClass(App, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      var _this2 = this;
+
+      var promise = petfinder.pet.find({
+        output: "full",
+        location: "Fullerton, CA"
+      });
+      promise.then(function (data) {
+        var pets;
+
+        if (data.petfinder.pets && data.petfinder.pets.pet) {
+          if (Array.isArray(data.petfinder.pets.pet)) {
+            pets = data.petfinder.pets.pet;
+          } else {
+            pets = [data.petfinder.pets.pet];
+          }
+        } else {
+          pets = [];
+        }
+
+        _this2.setState({
+          pets: pets
+        });
+      });
+    }
+  }, {
     key: "handleTitleClick",
     value: function handleTitleClick() {
       alert("you clicked the title");
@@ -22692,7 +22725,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "60933" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61805" + '/');
 
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
