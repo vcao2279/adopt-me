@@ -1,6 +1,7 @@
 import React from "react";
 import pf from "petfinder-client";
 import { navigate } from "@reach/router/lib/history";
+import Carousel from "./Carousel";
 
 const petfinder = pf({
   key: process.env.API_KEY,
@@ -49,11 +50,14 @@ class Details extends React.Component {
     const { animal, name, location, description, media, breed } = this.state;
     return (
       <div className="details">
-        <h1>{name}</h1>
-        <h2>
-          {animal} - {breed} - {location}
-        </h2>
-        <p>{description}</p>
+        <Carousel media={media} />
+        <div>
+          <h1>{name}</h1>
+          <h2>
+            {animal} - {breed} - {location}
+          </h2>
+          <p>{description}</p>
+        </div>
       </div>
     );
   }
