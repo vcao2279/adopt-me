@@ -25305,14 +25305,20 @@ function (_React$Component) {
 
     return _possibleConstructorReturn(_this, (_temp = _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(Carousel)).call.apply(_getPrototypeOf2, [this].concat(args))), _this.state = {
       photos: [],
-      active: 0 //showing active slide
+      active: 0 //showing active slide index
 
+    }, _this.handleIndexClick = function (e) {
+      _this.setState({
+        active: +e.target.dataset.index
+      });
     }, _temp));
   }
 
   _createClass(Carousel, [{
     key: "render",
     value: function render() {
+      var _this2 = this;
+
       var _this$state = this.state,
           photos = _this$state.photos,
           active = _this$state.active;
@@ -25324,12 +25330,16 @@ function (_React$Component) {
       }), _react.default.createElement("div", {
         className: "carousel-smaller"
       }, photos.map(function (photo, index) {
-        return _react.default.createElement("img", {
-          key: photo.value,
-          src: photo.value,
-          className: index === active ? "active" : "",
-          alt: "animal thumbnail"
-        });
+        return (// eslint-disable-next-line
+          _react.default.createElement("img", {
+            key: photo.value,
+            "data-index": index,
+            src: photo.value,
+            className: index === active ? "active" : "",
+            alt: "animal thumbnail",
+            onClick: _this2.handleIndexClick
+          })
+        );
       })));
     }
   }], [{

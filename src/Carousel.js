@@ -3,7 +3,7 @@ import React from "react";
 class Carousel extends React.Component {
   state = {
     photos: [],
-    active: 0 //showing active slide
+    active: 0 //showing active slide index
   };
 
   //Automatic update the state everytime the props change
@@ -16,6 +16,10 @@ class Carousel extends React.Component {
     return { photos };
   }
 
+  handleIndexClick = e => {
+    this.setState({ active: +e.target.dataset.index });
+  };
+
   render() {
     const { photos, active } = this.state;
     return (
@@ -23,11 +27,14 @@ class Carousel extends React.Component {
         <img src={photos[active].value} alt="primary animal" />
         <div className="carousel-smaller">
           {photos.map((photo, index) => (
+            // eslint-disable-next-line
             <img
               key={photo.value}
+              data-index={index}
               src={photo.value}
               className={index === active ? "active" : ""}
               alt="animal thumbnail"
+              onClick={this.handleIndexClick}
             />
           ))}
         </div>
