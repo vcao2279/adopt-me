@@ -1,58 +1,6 @@
 import React from "react";
-import pf, { ANIMALS } from "petfinder-client";
-
-const petfinder = pf({
-  key: process.env.API_KEY,
-  secret: process.env.API_SECRET
-});
 
 class SearchParams extends React.Component {
-  state = {
-    location: "Seattle, WA",
-    animal: "",
-    breed: "",
-    breeds: []
-  };
-
-  handleChange = e => {
-    this.setState({
-      [e.target.id]: e.target.value
-    });
-  };
-
-  handleAnimalChange = e => {
-    this.setState(
-      {
-        animal: e.target.value,
-        breed: ""
-      },
-      this.getBreeds
-    );
-  };
-
-  getBreeds() {
-    if (this.state.animal) {
-      petfinder.breed
-        .list({
-          animal: this.state.animal
-        })
-        .then(data => {
-          console.log(data);
-          if (
-            data.petfinder &&
-            data.petfinder.breeds &&
-            Array.isArray(data.petfinder.breeds.breed)
-          ) {
-            this.setState({ breeds: data.petfinder.breeds.breed });
-          } else {
-            this.setState({ breeds: [] });
-          }
-        });
-    } else {
-      this.setState({ breeds: [] });
-    }
-  }
-
   render() {
     return (
       <div className="search-params">
