@@ -4,7 +4,7 @@ import { Router, Link } from "@reach/router";
 import Results from "./Results";
 import Details from "./Details";
 import SearchParams from "./SearchParams";
-import pf, { ANIMALS } from "petfinder-client";
+import pf from "petfinder-client";
 import { Provider } from "./SearchContext";
 
 const petfinder = pf({
